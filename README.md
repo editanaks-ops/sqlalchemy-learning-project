@@ -102,6 +102,7 @@ alembic downgrade -1
 Реализован класс BookRepository.
 
 ### Методы:
+
 add_book(title, author_id)
 get_books_by_author(author_id)
 delete_book(book_id)
@@ -128,11 +129,17 @@ engine = create_engine("sqlite:///homework.db", echo=True)
 Использованы стратегии:
 
 Lazy Loading
+
 Eager Loading (joinedload)
+
 SQLAlchemy Core (агрегирующий запрос)
+
 SELECT authors.name, COUNT(books.id) AS book_count
+
 FROM authors
+
 LEFT JOIN books ON authors.id = books.author_id
+
 GROUP BY authors.name
 
 ### Результат:
@@ -140,7 +147,7 @@ GROUP BY authors.name
 ('Фёдор Достоевский', 2)
 
 ## Архитектура проекта
-
+```text
 sqlalchemy_homework/
 │
 ├── database.py        # подключение к БД
@@ -154,11 +161,12 @@ sqlalchemy_homework/
 │
 ├── alembic.ini
 └── homework.db
-
+```
 
 ### Запуск проекта
+```bash
 python main.py
-
+```
 ## Выводы
 
 В рамках проекта:
