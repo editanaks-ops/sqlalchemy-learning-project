@@ -36,7 +36,7 @@ Backend-проект, демонстрирующий работу с:
 ####  Связь:
 - Один автор → много книг (One-to-Many)
 
-```python
+
 books = relationship("Book", back_populates="author")
 
  ### Результат:
